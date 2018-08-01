@@ -64,11 +64,9 @@ public class MainActivity extends AppCompatActivity implements Contract.View {
 
                 fetchData();
 
-                /*while (playerWgId == null) {
-                    continue;
-                }*/
+                // Have to fix it secondStep(playerWgId);
 
-                secondStep(playerWgId);
+                secondStep("1591667");
             }
 
 
