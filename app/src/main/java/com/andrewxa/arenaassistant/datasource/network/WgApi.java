@@ -1,6 +1,6 @@
-package com.andrewxa.arenaassistant.model.Api;
+package com.andrewxa.arenaassistant.datasource.network;
 
-import com.andrewxa.arenaassistant.model.GsonSerialized.Wg.WgAccountInfo;
+import com.andrewxa.arenaassistant.datasource.model.WgAccountInfo;
 
 
 import io.reactivex.Observable;

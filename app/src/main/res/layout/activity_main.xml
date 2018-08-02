@@ -17,14 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp">
+
         <Button
             android:id="@+id/playerSearchButton"
-            android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="search" />
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -35,14 +34,10 @@
         <TextView
             android:id="@+id/nameField"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="18sp"
-            android:layout_height="wrap_content" />
-
-
-
+            android:textSize="18sp" />
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,11 +47,9 @@
         <TextView
             android:id="@+id/wgIdField"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="18sp"
-            android:layout_height="wrap_content" />
-
-
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -67,11 +60,8 @@
         <TextView
             android:id="@+id/arenaIdField"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="18sp"
-            android:layout_height="wrap_content" />
-
-
+            android:textSize="18sp" />
     </LinearLayout>
-
 </LinearLayout>

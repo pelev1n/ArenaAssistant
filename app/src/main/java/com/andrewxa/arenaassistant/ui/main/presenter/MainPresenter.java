@@ -1,19 +1,15 @@
-package com.andrewxa.arenaassistant.presenter;
+package com.andrewxa.arenaassistant.ui.main.presenter;
 
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 
-import com.andrewxa.arenaassistant.contract.Contract;
-
-import java.io.IOException;
-
-public class Presenter implements Contract.Presenter{
-
+/**
+ * Created by Caramel Heaven on 02.08.2018
+ */
+public class MainPresenter implements Contract.Presenter {
     Contract.View view;
     Context context;
 
-    public Presenter(Contract.View view, Context context) {
+    public MainPresenter(Contract.View view, Context context) {
         this.view = view;
         this.context = context;
     }

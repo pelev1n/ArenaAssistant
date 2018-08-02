@@ -1,4 +1,4 @@
-package com.andrewxa.arenaassistant.contract;
+package com.andrewxa.arenaassistant.ui.main.presenter;
 
 public interface Contract {
 
