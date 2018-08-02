@@ -1,4 +1,4 @@
-package com.andrewxa.arenaassistant.model.GsonSerialized.Wg;
+package com.andrewxa.arenaassistant.datasource.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
