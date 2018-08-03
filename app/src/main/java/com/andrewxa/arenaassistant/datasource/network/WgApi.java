@@ -1,6 +1,6 @@
 package com.andrewxa.arenaassistant.datasource.network;
 
-import com.andrewxa.arenaassistant.datasource.model.WgAccountInfo;
+import com.andrewxa.arenaassistant.datasource.model.wgmodel.WgAccInfo;
 
 
 import io.reactivex.Observable;
@@ -11,5 +11,5 @@ import retrofit2.http.Query;
 public interface WgApi {
 
     @GET(" ")
-    Observable<WgAccountInfo> getWgPlayerId(@Query("search") String playerName);
+    Observable<WgAccInfo> getWgPlayerId(@Query("search") String playerName);
 }

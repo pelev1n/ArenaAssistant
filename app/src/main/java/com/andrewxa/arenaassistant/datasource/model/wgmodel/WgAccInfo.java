@@ -1,11 +1,11 @@
-package com.andrewxa.arenaassistant.datasource.model;
+package com.andrewxa.arenaassistant.datasource.model.wgmodel;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class WgAccountInfo {
+public class WgAccInfo {
 
     @SerializedName("status")
     @Expose

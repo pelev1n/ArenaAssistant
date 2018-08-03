@@ -23,6 +23,7 @@ public class ArenaAssistant extends Application {
 
     private static ArenaAssistant application;
     private static ArenaApi arenaApi;
+    private static ArenaApi arenaInfoApi;
     private static WgApi wgApi;
 
     @Override
@@ -33,6 +34,7 @@ public class ArenaAssistant extends Application {
 
         arenaApi = initArena().create(ArenaApi.class);
         wgApi = initWg().create(WgApi.class);
+        arenaInfoApi = initArenaInfo().create(ArenaApi.class);
     }
 
     public static ArenaAssistant getApplication() {
@@ -51,6 +53,10 @@ public class ArenaAssistant extends Application {
         return wgApi;
     }
 
+    public static ArenaApi getArenaInfoApi() {
+        return arenaInfoApi;
+    }
+
     private static Retrofit initArena() {
         return new Retrofit.Builder()
                 .baseUrl(baseUrlArena())
@@ -63,6 +69,15 @@ public class ArenaAssistant extends Application {
     private static Retrofit initWg() {
         return new Retrofit.Builder()
                 .baseUrl(baseUrlOther())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(initClient())
+                .build();
+    }
+
+    private static Retrofit initArenaInfo() {
+        return new Retrofit.Builder()
+                .baseUrl(baseUrlArenaInfo())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(initClient())
@@ -94,4 +109,10 @@ public class ArenaAssistant extends Application {
     private static String baseUrlOther() {
         return "https://api.worldoftanks.ru/wot/account/list/?" + LANG + "&application_id=" + APP_ID;
     }
+
+    private static String baseUrlArenaInfo() {
+        return "https://s3-eu-west-1.amazonaws.com/live-caprofile-profiles.twaservers.com/public/";
+    }
+
+
 }
