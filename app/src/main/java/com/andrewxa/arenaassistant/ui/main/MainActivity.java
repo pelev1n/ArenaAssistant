@@ -1,5 +1,7 @@
 package com.andrewxa.arenaassistant.ui.main;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -16,6 +18,7 @@ import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 import com.andrewxa.arenaassistant.ui.main.presenter.MainPresenterImpl;
 import com.andrewxa.arenaassistant.ui.main.presenter.MainView;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -45,22 +48,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
         setContentView(R.layout.activity_main);
         mainButton = findViewById(R.id.playerSearchButton);
         etEnterPlayerName = findViewById(R.id.playerNameField);
-        arenaField = findViewById(R.id.arenaIdField);
-        finalResult = findViewById(R.id.finalResult);
+      /*  arenaField = findViewById(R.id.arenaIdField);
+        finalResult = findViewById(R.id.finalResult);*/
         progressBar = findViewById(R.id.progressBar);
         tabLayout = findViewById(R.id.tablayout_id);
         toolbar = findViewById(R.id.toolbar);
 
-        viewPager = findViewById(R.id.viewpager_id);
-        adapter = new ViewPageAdapter(getSupportFragmentManager());
-
-        adapter.addFragment(new FragmentGeneral(),"General");
-        adapter.addFragment(new FragmentStat(),"Stat");
-        adapter.addFragment(new FragmentTotal(),"Total");
-
-
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
         setSupportActionBar(toolbar);
 
         presenter = MainPresenterImpl.getInstance(this);
@@ -72,17 +65,21 @@ public class MainActivity extends AppCompatActivity implements MainView {
     }
 
     private void showArenaPlayerInfo(ArenaAccInfo playerInfo) {
-        String formattedDate = formatDate(playerInfo.getJoinDate());
-
-        String finalString =
-                "Level: " + Long.toString(playerInfo.getPlayersLevel()) + ", " +
-                        "Joid date: " + formattedDate + ", " +
-                        "Battles played: " + Long.toString(playerInfo.getTotals().getBattlesPlayed()) + ", " +
-                        "Victories: " + Long.toString(playerInfo.getTotals().getResults().getVictories()) + ", " +
-                        "Total kills: " + Long.toString(playerInfo.getTotals().getKills());
-
-        finalResult.setText(finalString);
+        Intent intent = new Intent(this,PlayerInfo.class);
+        startActivity(intent);
     }
+
+    private void loadGeneralFragment() {
+
+    }
+
+    private void loadStatFragment() {
+
+    }
+
+    private void loadTotalFragment() {
+    }
+
 
     public String formatDate(long unixSeconds) {
         // convert seconds to milliseconds

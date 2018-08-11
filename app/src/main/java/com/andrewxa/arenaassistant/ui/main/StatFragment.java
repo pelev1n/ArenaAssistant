@@ -9,17 +9,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.andrewxa.arenaassistant.R;
 
-public class FragmentTotal extends Fragment {
+public class StatFragment extends Fragment {
 
     View v;
 
-    public FragmentTotal() {
+    public StatFragment() {
+    }
+
+    public static StatFragment newInstance() {
+        StatFragment fragment = new StatFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.total_fragment,container,false);
+        v = inflater.inflate(R.layout.stat_fragment,container,false);
         return v;
     }
 }

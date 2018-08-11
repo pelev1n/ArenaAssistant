@@ -12,6 +12,7 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class MainPresenterImpl {
 
+    public static ArenaAccInfo arenaAcc;
     private static volatile MainPresenterImpl instance;
     private static ArenaAccInfo arenaInfoCache = null;
 
@@ -46,6 +47,7 @@ public class MainPresenterImpl {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(arenaAccInfo -> {
+                    arenaAcc = arenaAccInfo;
                     getViewState.stopLoading();
                     arenaInfoCache = arenaAccInfo;
                     getViewState.showInformation(arenaAccInfo);
