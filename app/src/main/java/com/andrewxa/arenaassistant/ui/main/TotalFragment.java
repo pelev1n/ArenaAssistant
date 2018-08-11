@@ -10,18 +10,21 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
+import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 import com.andrewxa.arenaassistant.ui.main.presenter.MainPresenterImpl;
 
 public class TotalFragment extends Fragment {
 
     View view;
+    private ArenaAccInfo player;
 
     public TotalFragment() {
     }
 
-    public static TotalFragment newInstance() {
+    public static TotalFragment newInstance(ArenaAccInfo playerInfo) {
         TotalFragment fragment = new TotalFragment();
         Bundle args = new Bundle();
+        args.putSerializable("player",playerInfo);
         fragment.setArguments(args);
         return fragment;
     }
@@ -43,12 +46,13 @@ public class TotalFragment extends Fragment {
         TextView damage = (TextView) view.findViewById(R.id.totalField_damage);
         TextView kills = (TextView) view.findViewById(R.id.totalField_kills);
 
-        battlePlayed.setText("Played Battles: "+ MainPresenterImpl.arenaAcc.getTotals().getBattlesPlayed());
-        winBattles.setText("Played Battles: "+ MainPresenterImpl.arenaAcc.getTotals().getResults().getVictories());
-        defeatsBattles.setText("Played Battles: "+ MainPresenterImpl.arenaAcc.getTotals().getResults().getVictories());
-        damage.setText("Played Battles: "+ MainPresenterImpl.arenaAcc.getTotals().getDamage());
-        kills.setText("Played Battles: "+ MainPresenterImpl.arenaAcc.getTotals().getKills());
+        player = (ArenaAccInfo) getArguments().getSerializable("player");
 
+        battlePlayed.setText("Played Battles: 1" + player.getTotals().getBattlesPlayed());
+        winBattles.setText("Win battles: "+ player.getTotals().getResults().getVictories());
+        defeatsBattles.setText("defeat battles: "+ player.getTotals().getResults().getDefeats());
+        damage.setText("Damage: "+ player.getTotals().getDamage());
+        kills.setText("Kills: "+ player.getTotals().getKills());
         return view;
     }
 }

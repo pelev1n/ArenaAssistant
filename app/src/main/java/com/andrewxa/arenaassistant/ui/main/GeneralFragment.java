@@ -8,17 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.andrewxa.arenaassistant.R;
+import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 
 public class GeneralFragment extends Fragment {
 
     View v;
+    private ArenaAccInfo player;
 
     public GeneralFragment() {
     }
 
-    public static GeneralFragment newInstance() {
+    public static GeneralFragment newInstance(ArenaAccInfo playerInfo) {
         GeneralFragment fragment = new GeneralFragment();
         Bundle args = new Bundle();
+        args.putSerializable("player",playerInfo);
         fragment.setArguments(args);
         return fragment;
     }

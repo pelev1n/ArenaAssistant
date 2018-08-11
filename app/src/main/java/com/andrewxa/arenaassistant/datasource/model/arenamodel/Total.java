@@ -3,9 +3,10 @@ package com.andrewxa.arenaassistant.datasource.model.arenamodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Total {
+public class Total implements Serializable {
 
     @SerializedName("kills")
     @Expose

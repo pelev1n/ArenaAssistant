@@ -3,9 +3,10 @@ package com.andrewxa.arenaassistant.datasource.model.arenamodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ArenaAccInfo {
+public class ArenaAccInfo implements Serializable{
     @SerializedName("user_id")
     @Expose
     private String userID;

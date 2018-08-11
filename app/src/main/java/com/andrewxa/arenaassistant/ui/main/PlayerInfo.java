@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
+import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 
 public class PlayerInfo extends AppCompatActivity {
 
@@ -22,14 +23,16 @@ public class PlayerInfo extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        ArenaAccInfo arenaAccInfo = (ArenaAccInfo) getIntent().getSerializableExtra("player");
+
         TabLayout tabLayout = findViewById(R.id.tablayout_id);
 
         ViewPager viewPager = findViewById(R.id.viewpager_id);
         ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(GeneralFragment.newInstance(),"General");
-        adapter.addFragment(StatFragment.newInstance(),"Stat");
-        adapter.addFragment(TotalFragment.newInstance(),"Total");
+        adapter.addFragment(GeneralFragment.newInstance(arenaAccInfo),"General");
+        adapter.addFragment(StatFragment.newInstance(arenaAccInfo),"Stat");
+        adapter.addFragment(TotalFragment.newInstance(arenaAccInfo),"Total");
 
 
         viewPager.setAdapter(adapter);

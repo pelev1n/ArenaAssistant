@@ -3,7 +3,9 @@ package com.andrewxa.arenaassistant.datasource.model.arenamodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Map {
+import java.io.Serializable;
+
+public class Map implements Serializable {
 
     @SerializedName("commander_key")
     @Expose

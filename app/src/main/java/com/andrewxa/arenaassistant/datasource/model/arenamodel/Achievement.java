@@ -3,7 +3,9 @@ package com.andrewxa.arenaassistant.datasource.model.arenamodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Achievement {
+import java.io.Serializable;
+
+public class Achievement implements Serializable {
 
     @SerializedName("timestamp")
     @Expose

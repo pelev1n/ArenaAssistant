@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
 
     private void showArenaPlayerInfo(ArenaAccInfo playerInfo) {
         Intent intent = new Intent(this,PlayerInfo.class);
+        intent.putExtra("player",playerInfo);
         startActivity(intent);
     }
 

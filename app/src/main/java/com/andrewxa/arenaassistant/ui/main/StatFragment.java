@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.andrewxa.arenaassistant.R;
+import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 
 public class StatFragment extends Fragment {
 
@@ -16,7 +17,7 @@ public class StatFragment extends Fragment {
     public StatFragment() {
     }
 
-    public static StatFragment newInstance() {
+    public static StatFragment newInstance(ArenaAccInfo arenaAccInfo) {
         StatFragment fragment = new StatFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);

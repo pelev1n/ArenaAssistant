@@ -3,7 +3,9 @@ package com.andrewxa.arenaassistant.datasource.model.arenamodel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Reward {
+import java.io.Serializable;
+
+public class Reward implements Serializable {
 
     @SerializedName("reward_type")
     @Expose
