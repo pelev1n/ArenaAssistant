@@ -12,8 +12,17 @@ import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GeneralFragment extends Fragment {
 
@@ -26,7 +35,7 @@ public class GeneralFragment extends Fragment {
     public static GeneralFragment newInstance(ArenaAccInfo playerInfo) {
         GeneralFragment fragment = new GeneralFragment();
         Bundle args = new Bundle();
-        args.putSerializable("player",playerInfo);
+        args.putSerializable("player", playerInfo);
         fragment.setArguments(args);
         return fragment;
     }
@@ -34,7 +43,7 @@ public class GeneralFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.general_fragment,container,false);
+        view = inflater.inflate(R.layout.general_fragment, container, false);
 
         TextView nickName = (TextView) view.findViewById(R.id.generalNickName11);
         TextView winRate = (TextView) view.findViewById(R.id.generalWinRate);
@@ -48,28 +57,57 @@ public class GeneralFragment extends Fragment {
 
         player = (ArenaAccInfo) getArguments().getSerializable("player");
 
+        long btlPlayed  = player.getTotals().getBattlesPlayed();
+        long vistories = player.getTotals().getResults().getVictories();
+        long defeats = player.getTotals().getResults().getDefeats();
+        long damages = player.getTotals().getDamage();
+        long killz = player.getTotals().getKills();
+
         nickName.setText("Nickname: ");
-        battlePlayed.setText("Battles: " + player.getTotals().getBattlesPlayed());
-        winBattles.setText("Win: "+ player.getTotals().getResults().getVictories());
-        defeatsBattles.setText("Defeat: "+ player.getTotals().getResults().getDefeats());
+        battlePlayed.setText("Battles: " + battlePlayed);
+        winBattles.setText("Win: " + vistories);
+        defeatsBattles.setText("Defeat: " + defeats);
 
         winRate.setText("Winrate: " +
-                Integer.toString(
-                ((int) player.getTotals().getResults().getVictories() * 100) /
-                        (int)player.getTotals().getBattlesPlayed()) + "%");
+                Integer.toString(((int) vistories * 100) / (int) btlPlayed) + "%");
 
-        damage.setText("Damage: "+ player.getTotals().getDamage());
+        damage.setText("Damage: " + damages);
         damagePer.setText("Damage per battle: " + Long.toString(
-                        player.getTotals().getDamage() /
-                        player.getTotals().getBattlesPlayed()));
+                damages / btlPlayed));
 
 
-        kills.setText("Kills: "+ player.getTotals().getKills());
+        kills.setText("Kills: " + killz);
         killsPer.setText("Kills per battle: " + Long.toString(
-                        player.getTotals().getKills() /
-                        player.getTotals().getBattlesPlayed()));
+                killz / btlPlayed));
 
+        List<Long> stats = new ArrayList<>();
+       /* stats.add(btlPlayed);*/
+        stats.add(vistories);
+        stats.add(defeats);
+        initalGraph(view,stats);
 
         return view;
     }
+
+    public void initalGraph(View view,List<Long> stats) {
+        PieChart pieChart = (PieChart) view.findViewById(R.id.chart);
+
+        List<PieEntry> yValues = new ArrayList<>();
+
+        yValues.add(new PieEntry(stats.get(0),"Victories"));
+        yValues.add(new PieEntry(stats.get(1),"Defeats"));
+
+        PieDataSet dataSet = new PieDataSet(yValues,"Battles");
+
+        dataSet.setSliceSpace(3f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
+
+        PieData pieData = new PieData();
+
+
+
+    }
+
+
 }
