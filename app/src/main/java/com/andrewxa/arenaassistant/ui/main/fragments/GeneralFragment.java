@@ -42,7 +42,9 @@ public class GeneralFragment extends Fragment {
         TextView winBattles = (TextView) view.findViewById(R.id.generalField_WinBattles);
         TextView defeatsBattles = (TextView) view.findViewById(R.id.generalField_defeatsBattles);
         TextView damage = (TextView) view.findViewById(R.id.generalField_damage);
+        TextView damagePer = (TextView) view.findViewById(R.id.generalField_damage_per);
         TextView kills = (TextView) view.findViewById(R.id.generalField_kills);
+        TextView killsPer = (TextView) view.findViewById(R.id.generalField_kills_per);
 
         player = (ArenaAccInfo) getArguments().getSerializable("player");
 
@@ -57,7 +59,15 @@ public class GeneralFragment extends Fragment {
                         (int)player.getTotals().getBattlesPlayed()) + "%");
 
         damage.setText("Damage: "+ player.getTotals().getDamage());
+        damagePer.setText("Damage per battle: " + Long.toString(
+                        player.getTotals().getDamage() /
+                        player.getTotals().getBattlesPlayed()));
+
+
         kills.setText("Kills: "+ player.getTotals().getKills());
+        killsPer.setText("Kills per battle: " + Long.toString(
+                        player.getTotals().getKills() /
+                        player.getTotals().getBattlesPlayed()));
 
 
         return view;
