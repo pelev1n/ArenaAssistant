@@ -1,4 +1,4 @@
-package com.andrewxa.arenaassistant.ui.main;
+package com.andrewxa.arenaassistant.ui.main.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,18 +10,16 @@ import android.view.ViewGroup;
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 
-public class GeneralFragment extends Fragment {
+public class StatFragment extends Fragment {
 
     View v;
-    private ArenaAccInfo player;
 
-    public GeneralFragment() {
+    public StatFragment() {
     }
 
-    public static GeneralFragment newInstance(ArenaAccInfo playerInfo) {
-        GeneralFragment fragment = new GeneralFragment();
+    public static StatFragment newInstance(ArenaAccInfo arenaAccInfo) {
+        StatFragment fragment = new StatFragment();
         Bundle args = new Bundle();
-        args.putSerializable("player",playerInfo);
         fragment.setArguments(args);
         return fragment;
     }
@@ -29,8 +27,7 @@ public class GeneralFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.general_fragment,container,false);
-
+        v = inflater.inflate(R.layout.stat_fragment,container,false);
         return v;
     }
 }

@@ -1,4 +1,4 @@
-package com.andrewxa.arenaassistant.ui.main;
+package com.andrewxa.arenaassistant.ui.main.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
-import com.andrewxa.arenaassistant.ui.main.presenter.MainPresenterImpl;
 
 public class TotalFragment extends Fragment {
 
@@ -40,7 +39,7 @@ public class TotalFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.total_fragment,container,false);
 
-        TextView battlePlayed = (TextView) view.findViewById(R.id.totalField_BattlePlayed);
+        /*TextView battlePlayed = (TextView) view.findViewById(R.id.totalField_BattlePlayed);
         TextView winBattles = (TextView) view.findViewById(R.id.totalField_WinBattles);
         TextView defeatsBattles = (TextView) view.findViewById(R.id.totalField_defeatsBattles);
         TextView damage = (TextView) view.findViewById(R.id.totalField_damage);
@@ -52,7 +51,7 @@ public class TotalFragment extends Fragment {
         winBattles.setText("Win battles: "+ player.getTotals().getResults().getVictories());
         defeatsBattles.setText("defeat battles: "+ player.getTotals().getResults().getDefeats());
         damage.setText("Damage: "+ player.getTotals().getDamage());
-        kills.setText("Kills: "+ player.getTotals().getKills());
+        kills.setText("Kills: "+ player.getTotals().getKills());*/
         return view;
     }
 }

@@ -6,13 +6,12 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
+import com.andrewxa.arenaassistant.ui.main.fragments.GeneralFragment;
+import com.andrewxa.arenaassistant.ui.main.fragments.StatFragment;
+import com.andrewxa.arenaassistant.ui.main.fragments.TotalFragment;
 
 public class PlayerInfo extends AppCompatActivity {
 
