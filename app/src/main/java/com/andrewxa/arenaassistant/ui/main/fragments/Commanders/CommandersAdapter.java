@@ -14,12 +14,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.Stat;
 
 import java.util.List;
 
 
 public class CommandersAdapter extends RecyclerView.Adapter<CommandersAdapter.ViewHolder> {
+
     private List<Stat> commanders;
     private Context context;
 
@@ -32,26 +34,50 @@ public class CommandersAdapter extends RecyclerView.Adapter<CommandersAdapter.Vi
     @Override
     public CommandersAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.list_item, parent, false);
+        View view = inflater.inflate(R.layout.commander_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        String commanderName = commanders.get(position).getCommanderKey();
+        String commanderBattles = Long.toString(commanders.get(position).getVictories()+
+                                                + commanders.get(position).getDefeats());
+        String commanderMaxPointsCent = Long.toString(commanders.get(position).getMaxPointsCents()/100);
+        String commanderFreeXpCents = Long.toString(commanders.get(position).getFreeXPCents()/100);
+        String commanderUnitXpCents = Long.toString(commanders.get(position).getUnitXPCents()/100);
+        String commanderSilverCents = Long.toString(commanders.get(position).getSilverCents()/100);
+
+        holder.commanderName.setText("Имя: " + commanderName);
+        holder.commanderBattles.setText("Битвы: " + commanderBattles);
+        holder.commanderMaxPointsCent.setText("Рекорд по очкам: " + commanderMaxPointsCent);
+        holder.commanderFreeXpCents.setText("Свободный опыт: " + commanderFreeXpCents);
+        holder.commanderUnitXpCents.setText("Опыт отряда: " + commanderUnitXpCents);
+        holder.commanderSilverCents.setText("Серебро: " + commanderSilverCents);
+    }
+
+    @Override
+    public int getItemCount() {
+        return commanders.size();
     }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private Button updateButton, deleteButton;
-        private TextView text_name;
-        private TextView text_email;
+        TextView commanderName;
+        TextView commanderBattles;
+        TextView commanderMaxPointsCent;
+        TextView commanderFreeXpCents;
+        TextView commanderUnitXpCents;
+        TextView commanderSilverCents;
 
         ViewHolder(View view){
             super(view);
-          /*  updateButton = (Button) view.findViewById(R.id.updateButton);
-            deleteButton = (Button) view.findViewById(R.id.deleteButton);
-            text_name = (TextView) view.findViewById(R.id.text_name);
-            text_email = (TextView) view.findViewById(R.id.text_email);*/
+            commanderName = (TextView) view.findViewById(R.id.commander_name);
+            commanderBattles = (TextView) view.findViewById(R.id.commander_battles);
+            commanderMaxPointsCent = (TextView) view.findViewById(R.id.commander_max_points_cent);
+            commanderFreeXpCents = (TextView) view.findViewById(R.id.commander_free_xp_cents);
+            commanderUnitXpCents = (TextView) view.findViewById(R.id.commander_unit_xp_cents);
+            commanderSilverCents = (TextView) view.findViewById(R.id.commander_silver_cents);
         }
     }
 }
