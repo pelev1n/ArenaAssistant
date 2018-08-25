@@ -1,4 +1,4 @@
-package com.andrewxa.arenaassistant.ui.main.fragments;
+package com.andrewxa.arenaassistant.ui.main.fragments.Commanders;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,14 +12,15 @@ import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 
 public class CommandersFragment extends Fragment {
 
-    View v;
+    View view;
 
     public CommandersFragment() {
     }
 
-    public static CommandersFragment newInstance(ArenaAccInfo arenaAccInfo) {
+    public static CommandersFragment newInstance(ArenaAccInfo playerInfo) {
         CommandersFragment fragment = new CommandersFragment();
         Bundle args = new Bundle();
+        args.putSerializable("player",playerInfo);
         fragment.setArguments(args);
         return fragment;
     }
@@ -27,7 +28,11 @@ public class CommandersFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.stat_fragment,container,false);
-        return v;
+        view = inflater.inflate(R.layout.commanders_fragment,container,false);
+
+
+
+
+        return view;
     }
 }

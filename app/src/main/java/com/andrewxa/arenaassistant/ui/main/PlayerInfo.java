@@ -10,7 +10,7 @@ import android.support.v7.widget.Toolbar;
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 import com.andrewxa.arenaassistant.ui.main.fragments.GeneralFragment;
-import com.andrewxa.arenaassistant.ui.main.fragments.CommandersFragment;
+import com.andrewxa.arenaassistant.ui.main.fragments.Commanders.CommandersFragment;
 import com.andrewxa.arenaassistant.ui.main.fragments.TotalFragment;
 
 public class PlayerInfo extends AppCompatActivity {
