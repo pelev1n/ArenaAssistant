@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
 
-public class StatFragment extends Fragment {
+public class CommandersFragment extends Fragment {
 
     View v;
 
-    public StatFragment() {
+    public CommandersFragment() {
     }
 
-    public static StatFragment newInstance(ArenaAccInfo arenaAccInfo) {
-        StatFragment fragment = new StatFragment();
+    public static CommandersFragment newInstance(ArenaAccInfo arenaAccInfo) {
+        CommandersFragment fragment = new CommandersFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
