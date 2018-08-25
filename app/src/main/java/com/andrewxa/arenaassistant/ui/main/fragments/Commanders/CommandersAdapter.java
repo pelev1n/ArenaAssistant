@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.Stat;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -73,8 +74,39 @@ public class CommandersAdapter extends RecyclerView.Adapter<CommandersAdapter.Vi
     }
 
     public String getCorrectName(String jsonName) {
+        switch (jsonName) {
+            case "gre_cynane":
+                return "Кинана";
+            case "gre_leonidas":
+                return "Леонид";
+            case "gre_miltiades":
+                return "Мильтиад";
+            case "gre_alexander":
+                return "Александр Македонский";
 
-        return "s";
+            case "bar_arminius":
+                return "Арминий";
+            case "bar_ambiorix":
+                return "Амбиорикс";
+            case "bar_vercingetorix":
+                return "Верцингеториг";
+
+            case "car_hannibal":
+                return "Ганнибал";
+            case "car_hasdrubal":
+                return "Гаструбал";
+
+
+            case "rom_germanicus":
+                return "Германик";
+            case "rom_scipio":
+                return "Сципион Африканский";
+            case "rom_caesar":
+                return "Гай Юлий Цезарь";
+            case "rom_sulla":
+                return "Сулла";
+        }
+        return "Some Commander";
     }
 
 
