@@ -1,5 +1,6 @@
 package com.andrewxa.arenaassistant.ui.main.fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -64,7 +65,7 @@ public class GeneralFragment extends Fragment {
         long killz = player.getTotals().getKills();
 
         nickName.setText("Nickname: ");
-        battlePlayed.setText("Battles: " + battlePlayed);
+        battlePlayed.setText("Battles: " + btlPlayed);
         winBattles.setText("Win: " + vistories);
         defeatsBattles.setText("Defeat: " + defeats);
 
@@ -84,12 +85,12 @@ public class GeneralFragment extends Fragment {
        /* stats.add(btlPlayed);*/
         stats.add(vistories);
         stats.add(defeats);
-        initalGraph(view,stats);
+        initialGraph(view,stats);
 
         return view;
     }
 
-    public void initalGraph(View view,List<Long> stats) {
+    public void initialGraph(View view,List<Long> stats) {
         PieChart pieChart = (PieChart) view.findViewById(R.id.chart);
 
         List<PieEntry> yValues = new ArrayList<>();
@@ -103,10 +104,11 @@ public class GeneralFragment extends Fragment {
         dataSet.setSelectionShift(5f);
         dataSet.setColors(ColorTemplate.JOYFUL_COLORS);
 
-        PieData pieData = new PieData();
+        PieData data = new PieData(dataSet);
+        data.setValueTextSize(10f);
+        data.setValueTextColor(Color.YELLOW);
 
-
-
+        pieChart.setData(data);
     }
 
 
