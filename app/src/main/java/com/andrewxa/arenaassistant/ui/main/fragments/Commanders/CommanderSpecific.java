@@ -50,7 +50,8 @@ public class CommanderSpecific {
         return drawableResourceId;
     }
 
-
-
-
+    public static int getImagePoster(String tempImageName, Context context) {
+        String[] finalStr = tempImageName.split("_");
+        return getImage(finalStr[0]+"_poster",context);
+    }
 }

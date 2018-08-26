@@ -39,12 +39,15 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description = (TextView) findViewById(R.id.movie_description);
         poster = (ImageView) findViewById(R.id.movie_poster);
 
-        title.setText("Commander Tittle");
+        String commanderBattles = Long.toString(commander.getVictories() + commander.getDefeats());
+
+
+        title.setText("Battles: " + commanderBattles);
         description.setText("Commander Discription");
 
 
-        Glide.with(this).load(CommanderSpecific.getImage(commanderName+"_backdrop",this)).into(backdrop);
-        Glide.with(this).load(R.drawable.rom_germanicus).into(poster);
+        Glide.with(this).load(CommanderSpecific.getImagePoster(commanderName,this)).into(backdrop);
+        Glide.with(this).load(CommanderSpecific.getImage(commanderName+"_backdrop",this)).into(poster);
     }
 
 }
