@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.Stat;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import java.util.List;
 
@@ -54,9 +53,9 @@ public class CommandersAdapter extends RecyclerView.Adapter<CommandersAdapter.Vi
 
 
         String commanderName = commanders.get(position).getCommanderKey();
-        Glide.with(context).load(getImage(commanderName)).into(holder.commanderView);
+        Glide.with(context).load(CommanderSpecific.getImage(commanderName,context)).into(holder.commanderView);
 
-        holder.commanderName.setText(getCorrectName(commanderName));
+        holder.commanderName.setText(CommanderSpecific.getCorrectName(commanderName));
 
         holder.commanderView.setOnClickListener(new View.OnClickListener() {
             @Override

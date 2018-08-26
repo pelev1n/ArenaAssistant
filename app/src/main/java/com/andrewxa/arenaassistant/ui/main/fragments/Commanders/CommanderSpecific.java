@@ -2,9 +2,9 @@ package com.andrewxa.arenaassistant.ui.main.fragments.Commanders;
 
 import android.content.Context;
 
-public class CommanderSpecification {
+public class CommanderSpecific {
 
-    public CommanderSpecification() {
+    public CommanderSpecific() {
 
     }
 

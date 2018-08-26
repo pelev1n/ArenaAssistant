@@ -27,16 +27,14 @@ public class CommanderDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_com_detail);
 
-        if (getIntent().hasExtra("commander")) {
-            commander = getIntent().getParcelableExtra("commander");
-        } else {
-            throw new IllegalArgumentException("Detail activity must receive a commander stats");
-        }
+        commander = (Stat) getIntent().getSerializableExtra("commander");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
-        toolbarLayout.setTitle("Tittle");
+
+        String commanderName = commander.getCommanderKey();
+        toolbarLayout.setTitle(CommanderSpecific.getCorrectName(commanderName));
 
         backdrop = (ImageView) findViewById(R.id.backdrop);
         title = (TextView) findViewById(R.id.movie_title);
@@ -46,7 +44,8 @@ public class CommanderDetailActivity extends AppCompatActivity {
         title.setText("Commander Tittle");
         description.setText("Commander Discription");
 
-        Glide.with(this).load(R.drawable.rom_caesar).into(backdrop);
+
+        Glide.with(this).load(CommanderSpecific.getImage(commanderName,this)).into(backdrop);
         Glide.with(this).load(R.drawable.rom_germanicus).into(poster);
         /*dataManager.getmPicaso().with(this)
                 .load("http://image.tmdb.org/t/p/w500" + mMovie.getPoster())
