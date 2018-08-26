@@ -1,6 +1,7 @@
 package com.andrewxa.arenaassistant.ui.main.fragments.Commanders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,6 +57,16 @@ public class CommandersAdapter extends RecyclerView.Adapter<CommandersAdapter.Vi
         Glide.with(context).load(getImage(commanderName)).into(holder.commanderView);
 
         holder.commanderName.setText(getCorrectName(commanderName));
+
+        holder.commanderView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CommanderDetailActivity.class);
+                intent.putExtra("commander", commanders.get(position));
+                context.startActivity(intent);
+            }
+        });
+
 /*        Contact contact = mContacts.get(position);
         holder.rootView.setTag(contact);
         holder.tvName.setText(contact.getName());

@@ -9,17 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
+import com.bumptech.glide.Glide;
 
 public class CommanderDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_MOVIE = "movie";
 
-    private Movie mMovie;
     ImageView backdrop;
     ImageView poster;
     TextView title;
     TextView description;
-    DataManager dataManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,17 +35,20 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description = (TextView) findViewById(R.id.movie_description);
         poster = (ImageView) findViewById(R.id.movie_poster);
 
-        title.setText(mMovie.getTitle());
-        description.setText(mMovie.getDescription());
-        dataManager.getmPicaso().with(this)
+        title.setText("Commander Tittle");
+        description.setText("Commander Discription");
+
+        Glide.with(this).load(R.drawable.rom_caesar).into(backdrop);
+        Glide.with(this).load(R.drawable.rom_germanicus).into(poster);
+        /*dataManager.getmPicaso().with(this)
                 .load("http://image.tmdb.org/t/p/w500" + mMovie.getPoster())
                 .networkPolicy(NetworkPolicy.OFFLINE)
                 .into(poster);
+
         dataManager.getmPicaso().with(this)
                 .load("http://image.tmdb.org/t/p/w500" + mMovie.getBackdrop())
                 .networkPolicy(NetworkPolicy.OFFLINE)
-                .into(backdrop);
+                .into(backdrop);*/
     }
 
-    }
 }
