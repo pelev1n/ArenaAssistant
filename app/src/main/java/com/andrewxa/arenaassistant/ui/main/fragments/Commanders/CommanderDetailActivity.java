@@ -43,7 +43,7 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description.setText("Commander Discription");
 
 
-        Glide.with(this).load(CommanderSpecific.getImage(commanderName,this)).into(backdrop);
+        Glide.with(this).load(CommanderSpecific.getImage(commanderName+"_backdrop",this)).into(backdrop);
         Glide.with(this).load(R.drawable.rom_germanicus).into(poster);
     }
 
