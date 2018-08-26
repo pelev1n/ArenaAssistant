@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
+import com.andrewxa.arenaassistant.datasource.model.arenamodel.Stat;
 import com.bumptech.glide.Glide;
 
 public class CommanderDetailActivity extends AppCompatActivity {
@@ -19,16 +20,23 @@ public class CommanderDetailActivity extends AppCompatActivity {
     ImageView poster;
     TextView title;
     TextView description;
+    Stat commander;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_com_detail);
 
+        if (getIntent().hasExtra("commander")) {
+            commander = getIntent().getParcelableExtra("commander");
+        } else {
+            throw new IllegalArgumentException("Detail activity must receive a commander stats");
+        }
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
-        toolbarLayout.setTitle("COMMANDER!!!!");
+        toolbarLayout.setTitle("Tittle");
 
         backdrop = (ImageView) findViewById(R.id.backdrop);
         title = (TextView) findViewById(R.id.movie_title);
