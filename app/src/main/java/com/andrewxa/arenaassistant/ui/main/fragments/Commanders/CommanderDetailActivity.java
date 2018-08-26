@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.Stat;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 public class CommanderDetailActivity extends AppCompatActivity {
 
@@ -46,8 +48,15 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description.setText("Commander Discription");
 
 
-        Glide.with(this).load(CommanderSpecific.getImagePoster(commanderName,this)).into(backdrop);
-        Glide.with(this).load(CommanderSpecific.getImage(commanderName+"_backdrop",this)).into(poster);
+        Glide.with(this)
+                .load(CommanderSpecific.getImagePoster(commanderName,this))
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .into(backdrop);
+
+        Glide.with(this)
+                .load(CommanderSpecific.getImage(commanderName+"_backdrop",this))
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .into(poster);
     }
 
 }
