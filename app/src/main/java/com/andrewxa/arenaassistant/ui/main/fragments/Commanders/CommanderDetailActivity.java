@@ -14,8 +14,6 @@ import com.bumptech.glide.Glide;
 
 public class CommanderDetailActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MOVIE = "movie";
-
     ImageView backdrop;
     ImageView poster;
     TextView title;
@@ -47,15 +45,6 @@ public class CommanderDetailActivity extends AppCompatActivity {
 
         Glide.with(this).load(CommanderSpecific.getImage(commanderName,this)).into(backdrop);
         Glide.with(this).load(R.drawable.rom_germanicus).into(poster);
-        /*dataManager.getmPicaso().with(this)
-                .load("http://image.tmdb.org/t/p/w500" + mMovie.getPoster())
-                .networkPolicy(NetworkPolicy.OFFLINE)
-                .into(poster);
-
-        dataManager.getmPicaso().with(this)
-                .load("http://image.tmdb.org/t/p/w500" + mMovie.getBackdrop())
-                .networkPolicy(NetworkPolicy.OFFLINE)
-                .into(backdrop);*/
     }
 
 }
