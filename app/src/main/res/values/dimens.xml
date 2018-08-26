@@ -11,4 +11,12 @@
     <dimen name="contact_text_size">18sp</dimen>
     <dimen name="contact_details_phone_margin_top">8dp</dimen>
     <dimen name="fab_elevation">8dp</dimen>
+
+    <!--Commander_details -->
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin_details">16dp</dimen>
+    <dimen name="activity_vertical_margin_details">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
