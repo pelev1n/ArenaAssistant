@@ -41,7 +41,13 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description = (TextView) findViewById(R.id.movie_description);
         poster = (ImageView) findViewById(R.id.movie_poster);
 
-        TextView combattles =(TextView) findViewById(R.id.commander_battles);
+        TextView comBattles =(TextView) findViewById(R.id.commander_battles);
+        TextView comVictories =(TextView) findViewById(R.id.commander_victories);
+        TextView comMasPointCents =(TextView) findViewById(R.id.commander_max_points_cents);
+        TextView comFreeXpCents =(TextView) findViewById(R.id.commander_free_xp_cents);
+        TextView comUnitXpCents =(TextView) findViewById(R.id.commander_battles_unit_xp_cents);
+        TextView comSilverCents =(TextView) findViewById(R.id.commander_silver_cents);
+        TextView comTimeInBattle =(TextView) findViewById(R.id.commander_time_in_battles);
 
 
 
@@ -62,7 +68,7 @@ public class CommanderDetailActivity extends AppCompatActivity {
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
                 .into(poster);
 
-        combattles.setText("Battles: " + commanderBattles);
+        comBattles.setText("Battles: " + commanderBattles);
     }
 
 }

@@ -108,7 +108,7 @@
                 android:layout_height="match_parent" />
 
             <TextView
-                android:id="@+id/commander_free_xp_centes"
+                android:id="@+id/commander_free_xp_cents"
                 android:layout_width="208dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
