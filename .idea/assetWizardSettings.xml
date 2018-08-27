@@ -14,8 +14,8 @@
                         <option name="values">
                           <map>
                             <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_victories" />
-                            <entry key="sourceFile" value="C:\Users\Oleg\Desktop\ArenaStat\commanders\commander_info_svg\victories.svg" />
+                            <entry key="outputName" value="ic_free_xp" />
+                            <entry key="sourceFile" value="C:\Users\Oleg\Desktop\ArenaStat\commanders\commander_info_svg\free_xp.svg" />
                           </map>
                         </option>
                       </PersistentState>
