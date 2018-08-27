@@ -41,6 +41,10 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description = (TextView) findViewById(R.id.movie_description);
         poster = (ImageView) findViewById(R.id.movie_poster);
 
+        TextView combattles =(TextView) findViewById(R.id.commander_battles);
+
+
+
         String commanderBattles = Long.toString(commander.getVictories() + commander.getDefeats());
 
 
@@ -57,6 +61,8 @@ public class CommanderDetailActivity extends AppCompatActivity {
                 .load(CommanderSpecific.getImage(commanderName+"_backdrop",this))
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
                 .into(poster);
+
+        combattles.setText("Battles: " + commanderBattles);
     }
 
 }

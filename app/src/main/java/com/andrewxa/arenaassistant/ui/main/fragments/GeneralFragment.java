@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,14 +12,12 @@ import android.widget.TextView;
 
 import com.andrewxa.arenaassistant.R;
 import com.andrewxa.arenaassistant.datasource.model.arenamodel.ArenaAccInfo;
-import com.github.mikephil.charting.charts.LineChart;
+import com.andrewxa.arenaassistant.ui.main.fragments.Commanders.CommanderSpecific;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,14 +88,15 @@ public class GeneralFragment extends Fragment {
     }
 
     public void initialGraph(View view,List<Long> stats) {
-        PieChart pieChart = (PieChart) view.findViewById(R.id.chart);
+        PieChart pieChart1 = (PieChart) view.findViewById(R.id.chart1);
+        PieChart pieChart2 = (PieChart) view.findViewById(R.id.chart2);
 
         List<PieEntry> yValues = new ArrayList<>();
 
         yValues.add(new PieEntry(stats.get(0),"Victories"));
         yValues.add(new PieEntry(stats.get(1),"Defeats"));
 
-        PieDataSet dataSet = new PieDataSet(yValues,"Battles");
+        PieDataSet dataSet = new PieDataSet(yValues,null);
 
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
@@ -108,7 +106,8 @@ public class GeneralFragment extends Fragment {
         data.setValueTextSize(10f);
         data.setValueTextColor(Color.YELLOW);
 
-        pieChart.setData(data);
+        pieChart1.setData(data);
+        pieChart2.setData(data);
     }
 
 
