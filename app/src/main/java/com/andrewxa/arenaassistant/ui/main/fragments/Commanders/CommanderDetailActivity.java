@@ -63,11 +63,11 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description.setText("Commander Discription");
 
 
-        /*Glide.with(this)
+        Glide.with(this)
                 .load(CommanderSpecific.getImagePoster(commanderName, this))
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
-                .into(backdrop);*/
-        Glide.with(this)
+                .into(backdrop);
+       /*Glide.with(this)
                 .load(CommanderSpecific.getImage(commanderName + "_backdrop", this))
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
                 .into(backdrop);
@@ -75,7 +75,7 @@ public class CommanderDetailActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(CommanderSpecific.getImage(commanderName + "_backdrop", this))
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
-                .into(poster);
+                .into(poster);*/
 
         comBattles.setText("Battles: " + commanderBattles);
         comVictories.setText("Winrate: " + commanderVictories + "%");
