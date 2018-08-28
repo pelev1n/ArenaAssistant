@@ -41,34 +41,49 @@ public class CommanderDetailActivity extends AppCompatActivity {
         description = (TextView) findViewById(R.id.movie_description);
         poster = (ImageView) findViewById(R.id.movie_poster);
 
-        TextView comBattles =(TextView) findViewById(R.id.commander_battles);
-        TextView comVictories =(TextView) findViewById(R.id.commander_victories);
-        TextView comMasPointCents =(TextView) findViewById(R.id.commander_max_points_cents);
-        TextView comFreeXpCents =(TextView) findViewById(R.id.commander_free_xp_cents);
-        TextView comUnitXpCents =(TextView) findViewById(R.id.commander_battles_unit_xp_cents);
-        TextView comSilverCents =(TextView) findViewById(R.id.commander_silver_cents);
-        TextView comTimeInBattle =(TextView) findViewById(R.id.commander_time_in_battles);
-
-
+        TextView comBattles = (TextView) findViewById(R.id.commander_battles);
+        TextView comVictories = (TextView) findViewById(R.id.commander_victories);
+        TextView comMaxPointCents = (TextView) findViewById(R.id.commander_max_points_cents);
+        TextView comFreeXpCents = (TextView) findViewById(R.id.commander_free_xp_cents);
+        TextView comUnitXpCents = (TextView) findViewById(R.id.commander_battles_unit_xp_cents);
+        TextView comSilverCents = (TextView) findViewById(R.id.commander_silver_cents);
+        TextView comTimeInBattles = (TextView) findViewById(R.id.commander_time_in_battles);
 
         String commanderBattles = Long.toString(commander.getVictories() + commander.getDefeats());
+        String commanderVictories = Long.toString((commander.getVictories() * 100) /
+                (commander.getVictories() + commander.getDefeats()));
+        String commanderMaxPointCents = Long.toString(commander.getMaxPointsCents()/100);
+        String commanderFreeXpCents = Long.toString(commander.getFreeXPCents()/100);
+        String commanderUnitXpCents = Long.toString(commander.getUnitXPCents()/100);
+        String commanderSilverCents = Long.toString(commander.getSilverCents()/100);
+        String commanderTimeInBattles = Long.toString(commander.getTimeInBattle()/100);
 
 
         title.setText("Battles: " + commanderBattles);
         description.setText("Commander Discription");
 
 
+        /*Glide.with(this)
+                .load(CommanderSpecific.getImagePoster(commanderName, this))
+                .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
+                .into(backdrop);*/
         Glide.with(this)
-                .load(CommanderSpecific.getImagePoster(commanderName,this))
+                .load(CommanderSpecific.getImage(commanderName + "_backdrop", this))
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
                 .into(backdrop);
 
         Glide.with(this)
-                .load(CommanderSpecific.getImage(commanderName+"_backdrop",this))
+                .load(CommanderSpecific.getImage(commanderName + "_backdrop", this))
                 .apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE))
                 .into(poster);
 
         comBattles.setText("Battles: " + commanderBattles);
+        comVictories.setText("Winrate: " + commanderVictories + "%");
+        comMaxPointCents.setText("Max Point cents: " + commanderMaxPointCents);
+        comFreeXpCents.setText("Free xp: " + commanderFreeXpCents);
+        comUnitXpCents.setText("Unit xp cents: " + commanderUnitXpCents);
+        comSilverCents.setText("Silver: " + commanderSilverCents);
+        comTimeInBattles.setText("Time in battles: " + commanderTimeInBattles);
     }
 
 }
